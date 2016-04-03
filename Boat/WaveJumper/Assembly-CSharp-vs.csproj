@@ -49,11 +49,11 @@
      <Compile Include="Assets\Scripts\BoatControl.cs" />
      <Compile Include="Assets\Scripts\BoatHealth.cs" />
      <Compile Include="Assets\Scripts\EdgeDestroy.cs" />
+     <Compile Include="Assets\Scripts\RotorRotator.cs" />
      <Compile Include="Assets\Scripts\TheTimer.cs" />
      <Compile Include="Assets\Scripts\Wave.cs" />
      <Compile Include="Assets\Scripts\WaveCreate.cs" />
      <Compile Include="Assets\Scripts\WaveMove.cs" />
-     <Compile Include="Assets\Scripts\Wheels.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
