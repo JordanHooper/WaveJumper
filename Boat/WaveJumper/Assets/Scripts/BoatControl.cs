@@ -35,7 +35,7 @@ public class BoatControl : MonoBehaviour
     {
         if (col.gameObject.tag == "Wave")
         {
-            Destroy(col.gameObject, 0.7f);
+            Destroy(col.gameObject, 0.7f);                                  //destroy wave
             damage++;                                                       // take damage
         }
     }
