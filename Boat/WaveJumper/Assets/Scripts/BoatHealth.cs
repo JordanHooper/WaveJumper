@@ -5,35 +5,19 @@ public class BoatHealth : MonoBehaviour
 {
     public SpriteRenderer currentHealth;
     public Sprite[] health = new Sprite[6];
-    public int damage = 0, oldDamage = 0;
+    BoatControl boate;
 
-    void Update()
+    void Awake()
     {
-        oldDamage = damage;
-
-        if (Input.GetKeyDown("r"))
+        boate = GetComponentInParent<BoatControl>();
+        if (boate == null)
         {
-            damage++;
-            //	
+            Debug.Log("couldn't find script");
         }
-        // damage = GetComponentInParent<int>();
-        if (damage > oldDamage)
-        { currentHealth.sprite = WaveHit(); }
-
     }
 
-    private Sprite WaveHit()
+    void LateUpdate()
     {
-        return health[damage];
-
-        /* if (damage == 1)
-        { return health1; }
-        else if (damage == 2)
-        { return health2; }
-        else if (damage == 3)
-        { return health3; }
-        else if (damage == 4)
-        { return health4; }
-        else return health5; */
+        currentHealth.sprite = health[boate.damage];
     }
 }

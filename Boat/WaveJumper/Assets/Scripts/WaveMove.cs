@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SeaMove : MonoBehaviour
+public class WaveMove : MonoBehaviour
 {
     float i = 0;                                                    //initiliase variables
     void Update()
