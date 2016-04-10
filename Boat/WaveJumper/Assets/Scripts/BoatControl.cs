@@ -5,7 +5,7 @@ public class BoatControl : MonoBehaviour
 {
     public int damage = 0;
     float speed;
-    bool checkSea;
+    bool checkSea=true;
 
     void FixedUpdate()
     {
