@@ -19,5 +19,9 @@ public class BoatHealth : MonoBehaviour
     void LateUpdate()
     {
         currentHealth.sprite = health[boate.damage];
+        if (boate.damage >= 6)
+        {
+            Time.timeScale = 0f;
+        }
     }
 }
