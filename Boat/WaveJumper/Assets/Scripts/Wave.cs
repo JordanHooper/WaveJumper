@@ -7,12 +7,15 @@ public class Wave : MonoBehaviour
 {
 
     public float ranMin, ranMax;                            //set values in unity to control the speed of the waves
-    float waveSpeed;                             //set the speed to be a random value betwee the previously set values
+    public float waveSpeed;                             //set the speed to be a random value betwee the previously set values
     WaveCreate isChild;
+  //  RigidbodyConstraints2D thing;
+    
 
     void Awake()
     {
         isChild = GetComponentInParent<WaveCreate>();                 //if get component on parent then override the wavespeed
+        //thing = GetComponent<RigidbodyConstraints2D>();
     }
 
     void Start()
@@ -24,7 +27,7 @@ public class Wave : MonoBehaviour
         }
         else
         {
-            ranMin = -0.2f;
+            ranMin = -0.4f;
             ranMax = -1.1f;
         }
         waveSpeed = Random.Range(ranMin, ranMax);
@@ -37,5 +40,6 @@ public class Wave : MonoBehaviour
     {
         this.transform.Translate(waveSpeed, 0, 0);                  //move the wave by the speed variable
         waveSpeed = Random.Range(ranMin, ranMax);
+        Debug.Log(waveSpeed);
     }
 }

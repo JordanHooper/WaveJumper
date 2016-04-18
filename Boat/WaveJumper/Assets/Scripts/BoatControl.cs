@@ -5,7 +5,7 @@ public class BoatControl : MonoBehaviour
 {
     public int damage = 0;
     float speed;
-    bool checkSea=true;
+    bool checkSea = true;
 
     void FixedUpdate()
     {
@@ -33,9 +33,12 @@ public class BoatControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)                                //if they collide with a wave
     {
+        Wave thingy;
         if (col.gameObject.tag == "Wave")
         {
             Destroy(col.gameObject, 0.7f);                                  //destroy wave
+            thingy = col.gameObject.GetComponent<Wave>();
+            thingy.waveSpeed = 0f;
             damage++;                                                       // take damage
         }
     }
