@@ -16,13 +16,14 @@ public class StartTimer : MonoBehaviour
         gameStuff = ("Get ready");                                     //initialise a string
     }
 
-    void ()
+    // Update is called once per frame
+
+    public Button.ButtonClickedEvent onClick
     {
 
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update() //ButtonPressedEvent
     {
         if (EventManage.currentGameState == GameState.preGame)      //wait until ready
         {
@@ -34,7 +35,7 @@ public class StartTimer : MonoBehaviour
             remainTime -= Time.deltaTime;                              //decrement timer
             if (remainTime <= 0f)                                       //once the timer is finished 
             {
-                //set CurrentGameState.running;
+                EventManage.currentGameState = GameState.running;           //set game state to running
             }
         }
     }

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
+
 
 public class BoatHealth : MonoBehaviour
 {
@@ -21,7 +23,7 @@ public class BoatHealth : MonoBehaviour
         currentHealth.sprite = health[boate.damage];
         if (boate.damage >= 6)
         {
-            Time.timeScale = 0f;
+            EventManage.currentGameState = GameState.gameEnd;
         }
     }
 }
