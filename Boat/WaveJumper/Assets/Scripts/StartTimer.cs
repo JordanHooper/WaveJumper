@@ -18,10 +18,10 @@ public class StartTimer : MonoBehaviour
 
     // Update is called once per frame
 
-    public Button.ButtonClickedEvent onClick
+   /* public Button.ButtonClickedEvent onClick
     {
 
-    }
+    } */
 
     void Update() //ButtonPressedEvent
     {

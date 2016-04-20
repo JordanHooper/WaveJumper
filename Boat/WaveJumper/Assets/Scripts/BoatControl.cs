@@ -6,6 +6,7 @@ public class BoatControl : MonoBehaviour
     public int damage = 0;
     float speed;
     bool checkSea = true;
+    public ParticleSystem splash;
 
     void FixedUpdate()
     {
@@ -29,6 +30,15 @@ public class BoatControl : MonoBehaviour
             speed = -Time.deltaTime;                                        //allow them to decelerate depending on how long they press
         }
         this.transform.Translate(movement);
+
+
+        if (checkSea == false)
+        {
+            splash.Play();
+        }
+        else splash.Pause();
+        //turn on splash using checksea
+
     }
 
     void OnCollisionEnter2D(Collision2D col)                                //if they collide with a wave
@@ -47,7 +57,7 @@ public class BoatControl : MonoBehaviour
     {
         if (col.gameObject.tag == "actSea")                                 //check to see if the boat is grounded 
         {
-            checkSea = false;                                               //set false when they're not in contact
+            checkSea = false;                                               //set false when they're not in contact - swapped
         }
         else
         {
