@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Assets.Scripts;
 
 public class TheTimer : MonoBehaviour
 {
@@ -8,7 +9,10 @@ public class TheTimer : MonoBehaviour
     private float passedTime;
     void Update()
     {
-        passedTime += Time.deltaTime;
-        timeText.text = passedTime.ToString("f2");
+        if (EventManage.currentGameState == GameState.running)
+        {
+            passedTime += Time.deltaTime;
+            timeText.text = passedTime.ToString("f2");
+        }
     }
 }

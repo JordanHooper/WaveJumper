@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 public class WaveCreate : MonoBehaviour
 {
@@ -23,13 +24,16 @@ public class WaveCreate : MonoBehaviour
 
     void FixedUpdate()
     {
-        nextTime -= Time.deltaTime;                                                              //decrement time counter
-
-        if (nextTime <= 0.0f)                                                                  //once the time to the next spawn is reached
+        if (EventManage.currentGameState == GameState.running)
         {
-            noSpawned++;
-            waveInstance = Instantiate(wavePrefab, spawnPos, spawnRot) as Rigidbody2D;        //duplicate the wave
-            nextTime = Random.Range(ranMin, ranMax);                                         //random function to regenerate the timer
+            nextTime -= Time.deltaTime;                                                              //decrement time counter
+
+            if (nextTime <= 0.0f)                                                                  //once the time to the next spawn is reached
+            {
+                noSpawned++;
+                waveInstance = Instantiate(wavePrefab, spawnPos, spawnRot) as Rigidbody2D;        //duplicate the wave
+                nextTime = Random.Range(ranMin, ranMax);                                         //random function to regenerate the timer
+            }
         }
     }
 }

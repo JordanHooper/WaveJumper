@@ -20,7 +20,8 @@ public class BoatHealth : MonoBehaviour
 
     void LateUpdate()
     {
-        currentHealth.sprite = health[boate.damage];
+        if (EventManage.currentGameState == GameState.running)
+            currentHealth.sprite = health[boate.damage];
         if (boate.damage >= 6)
         {
             EventManage.currentGameState = GameState.gameEnd;

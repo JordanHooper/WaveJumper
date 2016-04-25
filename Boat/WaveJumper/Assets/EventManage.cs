@@ -6,29 +6,20 @@ using UnityEngine.UI;
 public class EventManage : MonoBehaviour
 {
     public static GameState currentGameState = GameState.menuScreen;
-    
+
     // Use this for initialization
 
     void Awake()
     {
-        currentGameState = GameState.menuScreen;
+        currentGameState = GameState.menuScreen;                            //on game awakwe set the state to the menu screen
     }
 
-    void Update()
+    void OnUpdate()
     {
-        if (currentGameState == GameState.running)
+        if (Input.GetKey("o"))
         {
-            Time.timeScale = 1.0f;
+            currentGameState = GameState.running;
+            Debug.Log(currentGameState);
         }
-        else Time.timeScale = 0f;
-
-      //  Button.ButtonClickedEvent;
-        {
-            if (currentGameState == GameState.menuScreen)
-            {
-                currentGameState = GameState.preGame;
-            }
-        }
-
     }
 }

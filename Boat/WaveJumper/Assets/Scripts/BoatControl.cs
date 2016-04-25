@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 public class BoatControl : MonoBehaviour
 {
@@ -11,27 +12,27 @@ public class BoatControl : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 movement = new Vector2(speed, 0);                           // declare movement vector
+        if (EventManage.currentGameState == GameState.running)
+        {
+            if (Input.GetKey("d"))                                              // on d press
+            {
+                this.transform.Rotate(0, 0, -(Time.deltaTime * 3) - 2);         //rotate depending on how long the button is pressed
+            }
+            if (Input.GetKey("a"))
+            {
+                this.transform.Rotate(0, 0, (Time.deltaTime * 3) + 2);          // on a press as above
+            }
 
-        if (Input.GetKey("d"))                                              // on d press
-        {
-            this.transform.Rotate(0, 0, -(Time.deltaTime * 3) - 2);         //rotate depending on how long the button is pressed
-        }
-        if (Input.GetKey("a"))
-        {
-            this.transform.Rotate(0, 0, (Time.deltaTime * 3) + 2);          // on a press as above
-        }
-
-        if (Input.GetKey("w") && checkSea == true)                          // if they press w and they're in contact with sea              
-        {
-            speed += Time.deltaTime / 2;                                    // allow them to move
-        }
-        if (Input.GetKey("s") && checkSea == true)                          // if they want to reverse on button s press                
-        {
-            speed = -Time.deltaTime;                                        //allow them to decelerate depending on how long they press
+            if (Input.GetKey("w") && checkSea == true)                          // if they press w and they're in contact with sea              
+            {
+                speed += Time.deltaTime / 2;                                    // allow them to move
+            }
+            if (Input.GetKey("s") && checkSea == true)                          // if they want to reverse on button s press                
+            {
+                speed = -Time.deltaTime;                                        //allow them to decelerate depending on how long they press
+            }
         }
         this.transform.Translate(movement);
-
-
         if (checkSea == false)
         {
             splash.Play();

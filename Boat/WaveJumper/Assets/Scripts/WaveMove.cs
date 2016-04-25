@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 public class WaveMove : MonoBehaviour
 {
-    float i = 0;                                                    //initiliase variables
+    float i = 0, x = 0;                                                    //initiliase variables
     void Update()
     {
-        i = Mathf.PingPong(Time.time/6, 0.3f) - 0.15f;              //function to allow the variable to decrease and increase depending on the time
-        transform.Translate(i, 0, 0);                               // move the sea according to the variable
+        i = (Mathf.Sin(x/35))/4f;              //function to allow the variable to decrease and increase depending on the time
+        this.transform.Translate(i, 0, 0);                               // move the sea according to the variable
+        //Debug.Log(i);
+        x++;
     }
+
 }
