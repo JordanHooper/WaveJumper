@@ -33,7 +33,7 @@ public class BoatControl : MonoBehaviour
             }
         }
         this.transform.Translate(movement);
-        if (checkSea == false)
+        if (checkSea == true)
         {
             splash.Play();
         }

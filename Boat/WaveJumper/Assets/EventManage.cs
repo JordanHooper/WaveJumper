@@ -14,7 +14,7 @@ public class EventManage : MonoBehaviour
         currentGameState = GameState.menuScreen;                            //on game awakwe set the state to the menu screen
     }
 
-    void OnUpdate()
+    void Update()
     {
         if (Input.GetKey("o"))
         {
