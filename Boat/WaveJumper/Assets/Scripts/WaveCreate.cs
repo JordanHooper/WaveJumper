@@ -13,7 +13,7 @@ public class WaveCreate : MonoBehaviour
     Rigidbody2D waveInstance;
     public int noSpawned = 0;
 
-    void Start()
+    void Awake()
     {
         spawnPos = this.transform.position;                                                      //set the spawn position
         spawnRot = this.transform.rotation;                                                      //set the spawn rotation

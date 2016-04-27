@@ -11,6 +11,7 @@ public class BoatControl : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log("Boat works fine :3 ");
         Vector2 movement = new Vector2(speed, 0);                           // declare movement vector
         if (EventManage.currentGameState == GameState.running)
         {
@@ -44,12 +45,12 @@ public class BoatControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)                                //if they collide with a wave
     {
-        Wave thingy;
+        Wave thingy;                                                        //set a variable to get the wave
         if (col.gameObject.tag == "Wave")
         {
             Destroy(col.gameObject, 0.7f);                                  //destroy wave
-            thingy = col.gameObject.GetComponent<Wave>();
-            thingy.waveSpeed = 0f;
+            thingy = col.gameObject.GetComponent<Wave>();                   //get the wave
+            thingy.waveSpeed = 0f;                                          //remove the wave's speed after collision
             damage++;                                                       // take damage
         }
     }
@@ -58,7 +59,7 @@ public class BoatControl : MonoBehaviour
     {
         if (col.gameObject.tag == "actSea")                                 //check to see if the boat is grounded 
         {
-            checkSea = false;                                               //set false when they're not in contact - swapped
+            checkSea = false;                                               //set false when they're not in contact
         }
         else
         {

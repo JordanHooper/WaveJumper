@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - gameMenu
+  - actSea
+  - Wave
   layers:
   - Default
   - TransparentFX

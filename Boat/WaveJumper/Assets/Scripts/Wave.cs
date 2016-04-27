@@ -21,6 +21,10 @@ public class Wave : MonoBehaviour
     void Start()
     {
         isChild = GetComponentInParent<WaveCreate>();                 //if get component on parent then override the wavespeed
+        if (isChild == null)
+        {
+            Debug.Log("DIDN'T FIND PARENT WAVE IDIOT");
+        }
         if (isChild.noSpawned <= 1)
         {
             ranMax = 0;

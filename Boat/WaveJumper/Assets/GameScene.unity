@@ -1279,6 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a1460df07eea84dac8cbebf3dce711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theText: {fileID: 0}
 --- !u!1 &1739740013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,7 +1469,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1748328318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.28999996, y: -1.74000001, z: 0}
+  m_LocalPosition: {x: 2.88000011, y: -1.21000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 354896981}
@@ -2750,7 +2751,7 @@ GameObject:
   - 61: {fileID: 1977134605}
   m_Layer: 0
   m_Name: Boat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2791,7 +2792,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1977134599}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
@@ -2843,14 +2844,14 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1977134599}
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &1977134604
 SpriteRenderer:
@@ -2930,7 +2931,7 @@ GameObject:
   - 114: {fileID: 2001911641}
   m_Layer: 0
   m_Name: FgWave
-  m_TagString: Untagged
+  m_TagString: actSea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
