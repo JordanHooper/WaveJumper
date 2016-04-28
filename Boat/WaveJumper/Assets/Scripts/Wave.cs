@@ -2,8 +2,6 @@
 using System.Collections;
 using Assets.Scripts;
 
-
-
 public class Wave : MonoBehaviour
 {
 

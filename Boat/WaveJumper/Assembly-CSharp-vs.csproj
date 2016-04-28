@@ -46,12 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\EventManage.cs" />
-     <Compile Include="Assets\PretT.cs" />
      <Compile Include="Assets\Scripts\BoatControl.cs" />
      <Compile Include="Assets\Scripts\BoatHealth.cs" />
      <Compile Include="Assets\Scripts\EdgeDestroy.cs" />
+     <Compile Include="Assets\Scripts\EventManage.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
+     <Compile Include="Assets\Scripts\PretT.cs" />
      <Compile Include="Assets\Scripts\RotorRotator.cs" />
      <Compile Include="Assets\Scripts\StartTimer.cs" />
      <Compile Include="Assets\Scripts\TheTimer.cs" />

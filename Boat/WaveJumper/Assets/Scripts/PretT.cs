@@ -17,6 +17,13 @@ public class PretT : MonoBehaviour
     }
 
 
+    public void ButtonClick()
+    {
+        Debug.Log("CLICKED MENU");
+        EventManage.currentGameState = GameState.preGame;                  //on the button click, set the game state change
+        //menu. = false;
+    }
+
     void Update()
     {
         if (EventManage.currentGameState == GameState.preGame)
@@ -24,13 +31,14 @@ public class PretT : MonoBehaviour
             theText.text = gameStuff;
             if (remainTime <= 4f)                                       //once there's 4 seconds left change to displaying a timer
             {
-                theText.text = remainTime.ToString("f0");           //output time - with no decimals
+                theText.text = remainTime.ToString("f1");           //output time - with no decimals
             }
             if (remainTime <= 0f)                                       //once the timer is finished 
             {
                 EventManage.currentGameState = GameState.running;           //set game state to running
             }
             remainTime -= Time.deltaTime;
+            Debug.Log(remainTime);
         }
     }
 }

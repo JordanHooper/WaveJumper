@@ -12,6 +12,7 @@ public class EventManage : MonoBehaviour
     void Awake()
     {
         currentGameState = GameState.menuScreen;                            //on game awakwe set the state to the menu screen
+        Time.timeScale = 1.0f;
     }
 
     void Update()
