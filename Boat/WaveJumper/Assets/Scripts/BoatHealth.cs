@@ -7,24 +7,18 @@ public class BoatHealth : MonoBehaviour
 {
     public SpriteRenderer currentHealth;
     public Sprite[] health = new Sprite[6];
-    BoatControl boate;
 
-    void Awake()
+    void Update()
     {
-        boate = GetComponentInParent<BoatControl>();
-        if (boate == null)
+        if (BoatControl.damage >= 6)
         {
-            Debug.Log("couldn't find script");
+            EventManage.currentGameState = GameState.gameEnd;
         }
     }
 
     void LateUpdate()
     {
         if (EventManage.currentGameState == GameState.running)
-            currentHealth.sprite = health[boate.damage];
-        if (boate.damage >= 6)
-        {
-            EventManage.currentGameState = GameState.gameEnd;
-        }
+            currentHealth.sprite = health[BoatControl.damage];
     }
 }

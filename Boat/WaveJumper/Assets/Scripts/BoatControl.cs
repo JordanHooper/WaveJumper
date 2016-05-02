@@ -4,13 +4,18 @@ using Assets.Scripts;
 
 public class BoatControl : MonoBehaviour
 {
-    public int damage = 0;
+    public static int damage = 0;
     float speed;
     bool checkSea = true;
     public ParticleSystem splash;
 
     void FixedUpdate()
     {
+        if (this.transform.position.y <= -1.8f)
+        {
+            EventManage.currentGameState = GameState.gameEnd;
+            Debug.Log("Boat too low");
+        }
         Debug.Log("Boat works fine :3 ");
         Vector2 movement = new Vector2(speed, 0);                           // declare movement vector
         if (EventManage.currentGameState == GameState.running)
@@ -30,7 +35,7 @@ public class BoatControl : MonoBehaviour
             }
             if (Input.GetKey("s") && checkSea == true)                          // if they want to reverse on button s press                
             {
-                speed = -Time.deltaTime;                                        //allow them to decelerate depending on how long they press
+                speed -= Time.deltaTime;                                        //allow them to decelerate depending on how long they press
             }
         }
         this.transform.Translate(movement);
@@ -41,18 +46,6 @@ public class BoatControl : MonoBehaviour
         else splash.Pause();
         //turn on splash using checksea
 
-    }
-
-    void OnCollisionEnter2D(Collision2D col)                                //if they collide with a wave
-    {
-        Wave thingy;                                                        //set a variable to get the wave
-        if (col.gameObject.tag == "Wave")
-        {
-            Destroy(col.gameObject, 0.7f);                                  //destroy wave
-            thingy = col.gameObject.GetComponent<Wave>();                   //get the wave
-            thingy.waveSpeed = 0f;                                          //remove the wave's speed after collision
-            damage++;                                                       // take damage
-        }
     }
 
     void OnCollisionExit(Collision col)

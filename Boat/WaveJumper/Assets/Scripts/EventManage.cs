@@ -17,10 +17,9 @@ public class EventManage : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey("o"))
+       if (currentGameState == GameState.gameEnd)
         {
-            currentGameState = GameState.running;
-            Debug.Log(currentGameState);
+            Time.timeScale = 0.0f;
         }
     }
 }

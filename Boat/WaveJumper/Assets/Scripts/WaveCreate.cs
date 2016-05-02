@@ -26,6 +26,11 @@ public class WaveCreate : MonoBehaviour
     {
         if (EventManage.currentGameState == GameState.running)
         {
+            if (wavePrefab == null)
+            {
+                Debug.Log("Killed all the waves, none left");
+                EventManage.currentGameState = GameState.gameEnd;
+            }
             nextTime -= Time.deltaTime;                                                              //decrement time counter
 
             if (nextTime <= 0.0f)                                                                  //once the time to the next spawn is reached

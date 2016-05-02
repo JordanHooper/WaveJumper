@@ -7,7 +7,7 @@ public class PretT : MonoBehaviour
 {
     public Text theText;
     string gameStuff;
-    float remainTime = 6f;
+    float remainTime = 5f;
 
 
     void Start()
@@ -28,7 +28,7 @@ public class PretT : MonoBehaviour
         if (EventManage.currentGameState == GameState.preGame)
         {
             theText.text = gameStuff;
-            if (remainTime <= 4f)                                       //once there's 4 seconds left change to displaying a timer
+            if (remainTime <= 3f)                                       //once there's 4 seconds left change to displaying a timer
             {
                 theText.text = remainTime.ToString("f1");           //output time - with no decimals
             }
@@ -39,6 +39,16 @@ public class PretT : MonoBehaviour
             }
             remainTime -= Time.deltaTime;
             // Debug.Log(remainTime);
+        }
+
+        if (EventManage.currentGameState == GameState.gameEnd)
+        {
+            if (BoatControl.damage >= 7)
+            {
+                theText.text = "Your boat took too much damage - GG";
+            }
+            else
+            { theText.text = "You drowned - GG"; }
         }
     }
 }

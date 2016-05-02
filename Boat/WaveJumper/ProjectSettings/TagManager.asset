@@ -7,6 +7,9 @@ TagManager:
   - gameMenu
   - actSea
   - Wave
+  - Top
+  - front
+  - Bot
   layers:
   - Default
   - TransparentFX
