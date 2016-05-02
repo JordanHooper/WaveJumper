@@ -19,9 +19,8 @@ public class PretT : MonoBehaviour
 
     public void ButtonClick()
     {
-        Debug.Log("CLICKED MENU");
+        //Debug.Log("CLICKED MENU");
         EventManage.currentGameState = GameState.preGame;                  //on the button click, set the game state change
-        //menu. = false;
     }
 
     void Update()
@@ -36,9 +35,10 @@ public class PretT : MonoBehaviour
             if (remainTime <= 0f)                                       //once the timer is finished 
             {
                 EventManage.currentGameState = GameState.running;           //set game state to running
+                theText.text = "";
             }
             remainTime -= Time.deltaTime;
-            Debug.Log(remainTime);
+            // Debug.Log(remainTime);
         }
     }
 }
