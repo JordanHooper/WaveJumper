@@ -4,10 +4,22 @@ using Assets.Scripts;
 
 public class BoatControl : MonoBehaviour
 {
-    public static int damage = 0;
+    public int damage = 0;
     float speed;
     bool checkSea = true;
     public ParticleSystem splash;
+
+  /*  public int Damage
+    {
+        get
+        {
+            return damage;
+        }
+        set
+        {
+            damage = value;
+        }
+    } */
 
     void FixedUpdate()
     {

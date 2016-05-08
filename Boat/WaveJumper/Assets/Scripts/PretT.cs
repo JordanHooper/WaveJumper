@@ -8,11 +8,13 @@ public class PretT : MonoBehaviour
     public Text theText;
     string gameStuff;
     float remainTime = 5f;
-
+    BoatControl boatControl;
 
     void Start()
     {
         theText = GetComponent<Text>();
+        GameObject boat = GameObject.Find("Boat");
+        boatControl = boat.GetComponent<BoatControl>();
         gameStuff = ("Get ready");
     }
 
@@ -43,7 +45,7 @@ public class PretT : MonoBehaviour
 
         if (EventManage.currentGameState == GameState.gameEnd)
         {
-            if (BoatControl.damage >= 7)
+            if (boatControl.damage >= 7)
             {
                 theText.text = "Your boat took too much damage - GG";
             }

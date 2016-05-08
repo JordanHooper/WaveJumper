@@ -35,10 +35,15 @@ public class WaveCreate : MonoBehaviour
 
             if (nextTime <= 0.0f)                                                                  //once the time to the next spawn is reached
             {
-                noSpawned++;
-                waveInstance = Instantiate(wavePrefab, spawnPos, spawnRot) as Rigidbody2D;        //duplicate the wave
-                nextTime = Random.Range(ranMin, ranMax);                                         //random function to regenerate the timer
+                SpawnWave();
             }
         }
+    }
+
+    public  void SpawnWave()
+    {
+        noSpawned++;
+        waveInstance = Instantiate(wavePrefab, spawnPos, spawnRot) as Rigidbody2D;        //duplicate the wave
+        nextTime = Random.Range(ranMin, ranMax);                                         //random function to regenerate the timer
     }
 }

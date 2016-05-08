@@ -9,10 +9,12 @@ public class Wave : MonoBehaviour
     public float waveSpeed;                             //set the speed to be a random value betwee the previously set values
     WaveCreate isChild;
     public ParticleSystem splash;
-    bool goodCol=false;
+    bool goodCol = false;
+    BoatControl boatControl;
 
     void Start()
     {
+
         isChild = GetComponentInParent<WaveCreate>();                 //if get component on parent then override the wavespeed
         if (isChild == null)
         {
@@ -28,31 +30,37 @@ public class Wave : MonoBehaviour
     {
         if (EventManage.currentGameState == GameState.running)
         {
-            this.transform.Translate(waveSpeed, 0, 0);                  //move the wave by the speed variable
             waveSpeed = Random.Range(ranMin, ranMax);
             //Debug.Log(waveSpeed);
+            this.transform.Translate(waveSpeed, 0, 0);                      //move the wave by the speed variable
             CheckOutOfArea();
         }
     }
 
     void CheckOutOfArea()
     {
-        if (this.transform.position.x < -80f || this.transform.position.y < -15)
+        if (this.transform.position.x < -120f || this.transform.position.y < -15)
         {
             Destroy(this.gameObject);
+            Debug.Log("Out of area");
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollision2D(Collision2D col)
     {
-        if (col.gameObject.tag == "front" && goodCol == false)
+       /* if ((col.gameObject.tag == "Bot") && (goodCol == false))
         {
+            Debug.Log("Collision with bot");
             goodCol = true;
             HitPlayer();
-        }
-        if (col.gameObject.tag == "Bot" && goodCol == false)
+        } */
+        if (col.gameObject.tag == "front") 
         {
-            BoatControl.damage++;
+            Debug.Log("Collision with front");
+            GameObject boat = GameObject.Find("Boat");
+            boatControl = boat.GetComponent<BoatControl>();
+            boatControl.damage++;
+            Debug.Log(boatControl.damage);
             HitPlayer();
         }
     }
@@ -64,4 +72,8 @@ public class Wave : MonoBehaviour
         splash.Play();
     }
 
+    /*  void OnDestroy()
+      {
+          WaveCreate.SpawnWave();
+      } */
 }

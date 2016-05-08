@@ -15,9 +15,10 @@ public class WaveMove : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {      
-        if (col.gameObject.tag == "Top")
+        if (col.gameObject.tag == "Top")                                //check to see if the top of the boat has gone in the wave
         {
-            EventManage.currentGameState = GameState.gameEnd;
+            Debug.Log("upside down");
+            EventManage.currentGameState = GameState.gameEnd;           //boat drowned and the game is ended
         }
         
     }

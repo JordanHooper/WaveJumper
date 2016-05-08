@@ -7,10 +7,17 @@ public class BoatHealth : MonoBehaviour
 {
     public SpriteRenderer currentHealth;
     public Sprite[] health = new Sprite[6];
+    BoatControl boate;
+    
+
+    void Start()
+    {
+        boate = GetComponentInParent<BoatControl>();
+    }
 
     void Update()
     {
-        if (BoatControl.damage >= 6)
+        if (boate.damage >= 6)
         {
             EventManage.currentGameState = GameState.gameEnd;
         }
@@ -20,7 +27,7 @@ public class BoatHealth : MonoBehaviour
     {
         if (EventManage.currentGameState == GameState.running)
         {
-            currentHealth.sprite = health[BoatControl.damage];
+            currentHealth.sprite = health[boate.damage];
         }
     }
 }
