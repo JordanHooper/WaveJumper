@@ -16,7 +16,7 @@ public class BoatControl : MonoBehaviour
             EventManage.currentGameState = GameState.gameEnd;
             Debug.Log("Boat too low");
         }
-        Debug.Log("Boat works fine :3 ");
+        //Debug.Log("Boat works fine");
         Vector2 movement = new Vector2(speed, 0);                           // declare movement vector
         if (EventManage.currentGameState == GameState.running)
         {

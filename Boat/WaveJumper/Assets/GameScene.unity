@@ -236,14 +236,14 @@ ParticleSystem:
   startDelay: 0
   speed: 1
   randomSeed: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 1
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 3
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -276,7 +276,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     startSpeed:
-      scalar: 5
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -403,7 +403,7 @@ ParticleSystem:
         rgba: 4293705367
       minMaxState: 0
     startSize:
-      scalar: .5
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -465,13 +465,13 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: .5
     inheritVelocity: .100000001
-    maxNumParticles: 1000
+    maxNumParticles: 3000
   ShapeModule:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .00999999978
-    angle: 10
+    radius: .800000012
+    angle: 40
     length: 5
     boxX: 1
     boxY: 1
@@ -481,7 +481,7 @@ ParticleSystem:
     m_Mesh: {fileID: 0}
     randomDirection: 0
   EmissionModule:
-    enabled: 1
+    enabled: 0
     m_Type: 0
     rate:
       scalar: 50
@@ -526,7 +526,7 @@ ParticleSystem:
     time3: 0
     m_BurstCount: 0
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       scalar: 1
       maxCurve:
@@ -1281,7 +1281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 235833443}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -29.026001, y: -.411999941, z: 0}
+  m_LocalPosition: {x: .170000002, y: -.850000024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1748328323}
@@ -1600,8 +1600,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 424402186}
   m_LocalRotation: {x: 0, y: 0, z: .0261769518, w: .999657333}
-  m_LocalPosition: {x: .0759999976, y: .282000005, z: 0}
-  m_LocalScale: {x: 1.25, y: .200000003, z: 1}
+  m_LocalPosition: {x: .140000001, y: .282000005, z: 0}
+  m_LocalScale: {x: 1.03999996, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 1423373401}
   m_RootOrder: 1
@@ -2810,7 +2810,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 3
+  m_GravityScale: 7
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -4127,8 +4127,6 @@ GameObject:
   - 50: {fileID: 1977134603}
   - 114: {fileID: 1977134601}
   - 60: {fileID: 1977134602}
-  - 61: {fileID: 1977134605}
-  - 58: {fileID: 1977134606}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Player
@@ -4170,7 +4168,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1977134599}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
@@ -4227,7 +4225,7 @@ Rigidbody2D:
   m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -4259,32 +4257,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1f121a7335e288e4fbd3d54f85520abd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!61 &1977134605
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1977134599}
-  m_Enabled: 0
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.214933395, y: .491277874}
-  serializedVersion: 2
-  m_Size: {x: 2.66817546, y: .372068882}
---- !u!58 &1977134606
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1977134599}
-  m_Enabled: 0
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: .475563049
 --- !u!1 &2001911637
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,6 +19,8 @@ public class BoatHealth : MonoBehaviour
     void LateUpdate()
     {
         if (EventManage.currentGameState == GameState.running)
+        {
             currentHealth.sprite = health[BoatControl.damage];
+        }
     }
 }
