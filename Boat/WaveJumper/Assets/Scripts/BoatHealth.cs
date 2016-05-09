@@ -8,7 +8,7 @@ public class BoatHealth : MonoBehaviour
     public SpriteRenderer currentHealth;
     public Sprite[] health = new Sprite[6];
     BoatControl boate;
-    
+
 
     void Start()
     {
@@ -20,6 +20,7 @@ public class BoatHealth : MonoBehaviour
         if (boate.damage >= 6)
         {
             EventManage.currentGameState = GameState.gameEnd;
+            currentHealth.sprite = health[6];
         }
     }
 

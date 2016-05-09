@@ -9,17 +9,22 @@ public class BoatControl : MonoBehaviour
     bool checkSea = true;
     public ParticleSystem splash;
 
-  /*  public int Damage
+
+    /*  public int Damage
+      {
+          get
+          {
+              return damage;
+          }
+          set
+          {
+              damage = value;
+          }
+      } */
+    void Awake()
     {
-        get
-        {
-            return damage;
-        }
-        set
-        {
-            damage = value;
-        }
-    } */
+        Camera mainCamera = Camera.main;
+    }
 
     void FixedUpdate()
     {
@@ -41,15 +46,16 @@ public class BoatControl : MonoBehaviour
                 this.transform.Rotate(0, 0, (Time.deltaTime * 3) + 2);          // on a press as above
             }
 
-            if (Input.GetKey("w") && checkSea == true)                          // if they press w and they're in contact with sea              
+            if (Input.GetKey("w") && checkSea == true && speed < 0.2)                          // if they press w and they're in contact with sea              
             {
                 speed += Time.deltaTime / 2;                                    // allow them to move
             }
-            if (Input.GetKey("s") && checkSea == true)                          // if they want to reverse on button s press                
+            if (Input.GetKey("s") && checkSea == true && speed > -0.2)                          // if they want to reverse on button s press                
             {
                 speed -= Time.deltaTime;                                        //allow them to decelerate depending on how long they press
             }
         }
+        //Debug.Log(speed);
         this.transform.Translate(movement);
         if (checkSea == true)
         {
@@ -60,8 +66,18 @@ public class BoatControl : MonoBehaviour
 
     }
 
-    void OnCollisionExit(Collision col)
+    void OnCollision2DEnter(Collision2D col)
     {
+        if (col.gameObject.tag == "Side")
+        {
+            checkSea = false;
+        }
+    }
+
+
+    void OnCollision2DExit(Collision2D col)
+    {
+        Debug.Log("contact");
         if (col.gameObject.tag == "actSea")                                 //check to see if the boat is grounded 
         {
             checkSea = false;                                               //set false when they're not in contact

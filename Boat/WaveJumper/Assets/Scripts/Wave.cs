@@ -9,12 +9,20 @@ public class Wave : MonoBehaviour
     public float waveSpeed;                             //set the speed to be a random value betwee the previously set values
     WaveCreate isChild;
     public ParticleSystem splash;
-    bool goodCol = false;
+    bool moveable = false;
+    int waveDam = 1;
     BoatControl boatControl;
 
     void Start()
     {
-
+        if (WaveCreate.noSpawned <= 1)
+        {
+            moveable = false;
+        }
+        else
+        {
+            moveable = true;
+        }
         isChild = GetComponentInParent<WaveCreate>();                 //if get component on parent then override the wavespeed
         if (isChild == null)
         {
@@ -28,7 +36,7 @@ public class Wave : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (EventManage.currentGameState == GameState.running)
+        if (EventManage.currentGameState == GameState.running && moveable == true)
         {
             waveSpeed = Random.Range(ranMin, ranMax);
             //Debug.Log(waveSpeed);
@@ -46,20 +54,22 @@ public class Wave : MonoBehaviour
         }
     }
 
-    void OnCollision2D(Collision2D col)
+    void OnCollisionExit2D(Collision2D col)
     {
-       /* if ((col.gameObject.tag == "Bot") && (goodCol == false))
+       // Debug.Log(col.gameObject.tag);
+        /* if ((col.gameObject.tag == "Bot") && (goodCol == false))
+         {
+             Debug.Log("Collision with bot");
+             goodCol = true;
+             HitPlayer();
+         } */
+        if (col.gameObject.tag == "Player")
         {
-            Debug.Log("Collision with bot");
-            goodCol = true;
-            HitPlayer();
-        } */
-        if (col.gameObject.tag == "front") 
-        {
-            Debug.Log("Collision with front");
+            Debug.Log("Hit player");
             GameObject boat = GameObject.Find("Boat");
             boatControl = boat.GetComponent<BoatControl>();
-            boatControl.damage++;
+            boatControl.damage += waveDam;
+            waveDam = 0;
             Debug.Log(boatControl.damage);
             HitPlayer();
         }

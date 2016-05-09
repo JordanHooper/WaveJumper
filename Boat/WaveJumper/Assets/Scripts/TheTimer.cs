@@ -6,7 +6,7 @@ using Assets.Scripts;
 public class TheTimer : MonoBehaviour
 {
     public Text timeText;
-    private float passedTime;
+    public static float passedTime;
     void Update()
     {
         if (EventManage.currentGameState == GameState.running)

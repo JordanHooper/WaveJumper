@@ -147,11 +147,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 11
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294966015
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -168,11 +168,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 6423120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5999999, y: 0, z: -10}
+  m_LocalPosition: {x: -3.81999993, y: 0, z: -10}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &235833443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,7 +1317,6 @@ MonoBehaviour:
   wavePrefab: {fileID: 1748328321}
   ranMin: .200000003
   ranMax: 4
-  noSpawned: 0
 --- !u!212 &354896980
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1351,7 +1350,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 354896978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.7800007, y: 2.08999991, z: 0}
+  m_LocalPosition: {x: 23.3099995, y: 1.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1748328323}
@@ -1588,7 +1587,7 @@ GameObject:
   - 61: {fileID: 424402188}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Top
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1671,6 +1670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d60ea97ded10264088d838f1f85b81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  message: {fileID: 1510574669}
 --- !u!4 &465877297
 Transform:
   m_ObjectHideFlags: 0
@@ -1682,7 +1682,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &615459318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,7 +1829,7 @@ GameObject:
   - 58: {fileID: 660168047}
   m_Layer: 0
   m_Name: Front
-  m_TagString: front
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1968,25 +1968,27 @@ GameObject:
   m_Component:
   - 4: {fileID: 1116259134}
   - 212: {fileID: 1116259133}
-  - 114: {fileID: 1116259132}
-  m_Layer: 8
+  - 61: {fileID: 1116259132}
+  m_Layer: 10
   m_Name: RightEdge
-  m_TagString: Untagged
+  m_TagString: Side
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1116259132
-MonoBehaviour:
+  m_IsActive: 1
+--- !u!61 &1116259132
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1116259131}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f766c13a813ca0547997b9f81badc0ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.27999997}
 --- !u!212 &1116259133
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2020,7 +2022,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1116259131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.2000008, y: -1.5, z: 0}
+  m_LocalPosition: {x: 28, y: -1.5, z: 0}
   m_LocalScale: {x: 2, y: 50, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2095,11 +2097,22 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1160049115}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 465877296}
+        m_MethodName: HighScoreClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1160049115
@@ -2138,25 +2151,27 @@ GameObject:
   m_Component:
   - 4: {fileID: 1166082041}
   - 212: {fileID: 1166082040}
-  - 114: {fileID: 1166082039}
-  m_Layer: 8
-  m_Name: BottomEdge
-  m_TagString: Untagged
+  - 61: {fileID: 1166082039}
+  m_Layer: 10
+  m_Name: Top
+  m_TagString: Side
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1166082039
-MonoBehaviour:
+  m_IsActive: 1
+--- !u!61 &1166082039
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1166082038}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f766c13a813ca0547997b9f81badc0ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 7.4505806e-09}
+  serializedVersion: 2
+  m_Size: {x: 1.99999976, y: 1.27999973}
 --- !u!212 &1166082040
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2190,7 +2205,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1166082038}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: -6.9000001, y: -17.6299992, z: 0}
+  m_LocalPosition: {x: 1.79999995, y: 18.1000004, z: 0}
   m_LocalScale: {x: 2, y: 105.099998, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2562,7 +2577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1423373401
 Transform:
   m_ObjectHideFlags: 0
@@ -2610,8 +2625,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 350, y: 235}
-  m_SizeDelta: {x: 250, y: 30}
+  m_AnchoredPosition: {x: 350, y: 58}
+  m_SizeDelta: {x: 269, y: 89}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1510574669
 MonoBehaviour:
@@ -2850,7 +2865,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1748328318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.88000011, y: -1.21000004, z: 0}
+  m_LocalPosition: {x: 1.71000004, y: -.939999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 235833446}
@@ -4072,25 +4087,27 @@ GameObject:
   m_Component:
   - 4: {fileID: 1964558810}
   - 212: {fileID: 1964558809}
-  - 114: {fileID: 1964558808}
-  m_Layer: 8
+  - 61: {fileID: 1964558808}
+  m_Layer: 10
   m_Name: LeftEdge
-  m_TagString: Untagged
+  m_TagString: Side
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1964558808
-MonoBehaviour:
+  m_IsActive: 1
+--- !u!61 &1964558808
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1964558807}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f766c13a813ca0547997b9f81badc0ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.27999997}
 --- !u!212 &1964558809
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4124,7 +4141,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1964558807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -74, y: -.209999993, z: 0}
+  m_LocalPosition: {x: -32.9099998, y: -.209999993, z: 0}
   m_LocalScale: {x: 2, y: 50, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4155,7 +4172,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1977134599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.10599995, y: .987999976, z: 0}
+  m_LocalPosition: {x: -13.5600004, y: .987999976, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 387056552}
@@ -4629,7 +4646,7 @@ GameObject:
   - 61: {fileID: 2140286104}
   m_Layer: 0
   m_Name: Bot
-  m_TagString: Bot
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

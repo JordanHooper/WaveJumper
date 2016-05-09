@@ -11,7 +11,7 @@ public class WaveCreate : MonoBehaviour
     Vector3 spawnPos;
     Quaternion spawnRot;
     Rigidbody2D waveInstance;
-    public int noSpawned = 0;
+    public static int noSpawned = 0;
 
     void Awake()
     {
@@ -19,7 +19,7 @@ public class WaveCreate : MonoBehaviour
         spawnRot = this.transform.rotation;                                                      //set the spawn rotation
         waveInstance = Instantiate(wavePrefab, spawnPos, spawnRot) as Rigidbody2D;               //need to find a way to spawn it without speed
         nextTime = Random.Range(ranMin, ranMax);
-
+        noSpawned++;
     }
 
     void FixedUpdate()
@@ -40,7 +40,7 @@ public class WaveCreate : MonoBehaviour
         }
     }
 
-    public  void SpawnWave()
+    public void SpawnWave()
     {
         noSpawned++;
         waveInstance = Instantiate(wavePrefab, spawnPos, spawnRot) as Rigidbody2D;        //duplicate the wave

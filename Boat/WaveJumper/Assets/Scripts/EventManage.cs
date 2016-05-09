@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EventManage : MonoBehaviour
 {
     public static GameState currentGameState = GameState.menuScreen;
+    public Text message;
 
     // Use this for initialization
 
@@ -17,9 +18,24 @@ public class EventManage : MonoBehaviour
 
     void Update()
     {
-       if (currentGameState == GameState.gameEnd)
+        if (Input.GetKey("escape"))
         {
+            Application.Quit();
+        }
+        if (currentGameState == GameState.gameEnd)
+        {
+            if (PlayerPrefs.GetFloat("HighScore") <= TheTimer.passedTime)
+            {
+                message.text = "New High Score";
+                float score = TheTimer.passedTime;
+                PlayerPrefs.SetFloat("HighScore", score);
+            }
             Time.timeScale = 0.0f;
         }
+    }
+
+    public void HighScoreClick()
+    {
+        message.text = PlayerPrefs.GetFloat("HighScore").ToString();
     }
 }

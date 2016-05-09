@@ -7,9 +7,7 @@ TagManager:
   - gameMenu
   - actSea
   - Wave
-  - Top
-  - front
-  - Bot
+  - Side
   layers:
   - Default
   - TransparentFX
@@ -21,7 +19,7 @@ TagManager:
   - 
   - SpawnEdges
   - MenuLayer
-  - 
+  - Edges
   - 
   - 
   - 
