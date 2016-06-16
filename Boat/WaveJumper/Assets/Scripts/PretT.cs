@@ -45,7 +45,7 @@ public class PretT : MonoBehaviour
 
         if (EventManage.currentGameState == GameState.gameEnd)
         {
-            if (boatControl.damage >= 7)
+            if (boatControl.damage >= 6)
             {
                 theText.text = "Your boat took too much damage - GG";
             }

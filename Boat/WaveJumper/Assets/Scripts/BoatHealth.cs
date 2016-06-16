@@ -20,7 +20,7 @@ public class BoatHealth : MonoBehaviour
         if (boate.damage >= 6)
         {
             EventManage.currentGameState = GameState.gameEnd;
-            currentHealth.sprite = health[6];
+            currentHealth.sprite = health[5];
         }
     }
 

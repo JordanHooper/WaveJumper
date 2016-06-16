@@ -147,7 +147,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11
+  orthographic size: 10.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -168,7 +168,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 6423120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.81999993, y: 0, z: -10}
+  m_LocalPosition: {x: -4.86000013, y: 0, z: -10}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - 4: {fileID: 235833446}
   - 198: {fileID: 235833445}
   - 199: {fileID: 235833444}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DestroySplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1286,6 +1286,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1748328323}
   m_RootOrder: 0
+--- !u!1 &267693727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 267693728}
+  - 222: {fileID: 267693730}
+  - 114: {fileID: 267693729}
+  m_Layer: 5
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &267693728
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267693727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1739740014}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 139}
+  m_SizeDelta: {x: 160, y: 44}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &267693729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267693727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 3
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &267693730
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267693727}
 --- !u!1 &354896978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,7 +1736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d60ea97ded10264088d838f1f85b81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: {fileID: 1510574669}
+  message: {fileID: 267693729}
 --- !u!4 &465877297
 Transform:
   m_ObjectHideFlags: 0
@@ -2113,6 +2179,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 1160049112}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1160049115
@@ -2625,8 +2702,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 350, y: 58}
-  m_SizeDelta: {x: 269, y: 89}
+  m_AnchoredPosition: {x: 341, y: 43}
+  m_SizeDelta: {x: 300, y: 119}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1510574669
 MonoBehaviour:
@@ -2653,9 +2730,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
+  m_Text: 'Use WASD to move your boat
 
-'
+
+    Try and dodge those waves!
+
+
+    Tip: remember waveJUMPER'
 --- !u!222 &1510574670
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2705,6 +2786,7 @@ RectTransform:
   - {fileID: 1947164910}
   - {fileID: 369460450}
   - {fileID: 1223088072}
+  - {fileID: 267693728}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
@@ -2780,7 +2862,7 @@ GameObject:
   - 68: {fileID: 1748328324}
   - 61: {fileID: 1748328325}
   - 114: {fileID: 1748328319}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wave
   m_TagString: Wave
   m_Icon: {fileID: 0}
@@ -2909,6 +2991,7 @@ GameObject:
   - 4: {fileID: 1856624296}
   - 198: {fileID: 1856624297}
   - 199: {fileID: 1856624298}
+  - 114: {fileID: 1856624299}
   m_Layer: 0
   m_Name: WaterSplash
   m_TagString: Untagged
@@ -4012,6 +4095,17 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+--- !u!114 &1856624299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1856624295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9293e4009d1d1144acdc32a7020e62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1947164909
 GameObject:
   m_ObjectHideFlags: 0

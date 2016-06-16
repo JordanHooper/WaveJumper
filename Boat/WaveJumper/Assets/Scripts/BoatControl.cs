@@ -46,11 +46,11 @@ public class BoatControl : MonoBehaviour
                 this.transform.Rotate(0, 0, (Time.deltaTime * 3) + 2);          // on a press as above
             }
 
-            if (Input.GetKey("w") && checkSea == true && speed < 0.2)                          // if they press w and they're in contact with sea              
+            if (Input.GetKey("w") && checkSea == true && speed < 0.5)                          // if they press w and they're in contact with sea              
             {
                 speed += Time.deltaTime / 2;                                    // allow them to move
             }
-            if (Input.GetKey("s") && checkSea == true && speed > -0.2)                          // if they want to reverse on button s press                
+            if (Input.GetKey("s") && checkSea == true && speed > -0.4)                          // if they want to reverse on button s press                
             {
                 speed -= Time.deltaTime;                                        //allow them to decelerate depending on how long they press
             }

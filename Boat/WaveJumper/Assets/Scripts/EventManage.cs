@@ -14,10 +14,19 @@ public class EventManage : MonoBehaviour
     {
         currentGameState = GameState.menuScreen;                            //on game awakwe set the state to the menu screen
         Time.timeScale = 1.0f;
+
     }
 
     void Update()
     {
+        if (Input.GetKey("m"))
+        {
+            PlayerPrefs.SetFloat("HighScore", 0);
+        }
+        if (currentGameState == GameState.preGame)
+        {
+            message.text = "";
+        }
         if (Input.GetKey("escape"))
         {
             Application.Quit();
@@ -26,7 +35,7 @@ public class EventManage : MonoBehaviour
         {
             if (PlayerPrefs.GetFloat("HighScore") <= TheTimer.passedTime)
             {
-                message.text = "New High Score";
+                message.text = "New High Score!";
                 float score = TheTimer.passedTime;
                 PlayerPrefs.SetFloat("HighScore", score);
             }
@@ -37,5 +46,6 @@ public class EventManage : MonoBehaviour
     public void HighScoreClick()
     {
         message.text = PlayerPrefs.GetFloat("HighScore").ToString();
+
     }
 }

@@ -23,11 +23,11 @@ public class Wave : MonoBehaviour
         {
             moveable = true;
         }
-        isChild = GetComponentInParent<WaveCreate>();                 //if get component on parent then override the wavespeed
+       /* isChild = GetComponentInParent<WaveCreate>();                 //if get component on parent then override the wavespeed
         if (isChild == null)
         {
             Debug.Log("DIDN'T FIND PARENT WAVE IDIOT");
-        }
+        } */
         waveSpeed = Random.Range(ranMin, ranMax);
         float ran = Random.Range(0.5f, 2.5f);
         Vector3 vec = new Vector3(ran, ran, 0);
